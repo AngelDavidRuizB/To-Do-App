@@ -46,23 +46,47 @@ Una aplicación completa de productividad desarrollada con React que combina ges
 - Node.js (versión 16 o superior)
 - npm o yarn
 
-### Instalación
+### Desarrollo Local
+
 ```bash
 # Clonar el repositorio
-git clone [url-del-repositorio]
+git clone https://github.com/AngelDavidRuizB/To-Do-App.git
 
 # Navegar al directorio
-cd to-do-app
+cd To-Do-App
 
 # Instalar dependencias
 npm install
 
 # Ejecutar en modo desarrollo
 npm run dev
-
-# Construir para producción
-npm run build
 ```
+
+La aplicación estará disponible en `http://localhost:5173`
+
+### Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run preview` - Vista previa de la build de producción
+- `npm run lint` - Ejecuta el linter para verificar el código
+
+### Deployment a GitHub Pages
+
+La aplicación se despliega automáticamente a GitHub Pages cuando se hace push a la rama `main`. El workflow de GitHub Actions se encarga de:
+
+1. Instalar las dependencias
+2. Construir la aplicación
+3. Desplegar a GitHub Pages
+
+**🌐 URL en vivo:** [https://angeldavidruizb.github.io/To-Do-App/](https://angeldavidruizb.github.io/To-Do-App/)
+
+### Configuración para Producción
+
+El archivo `vite.config.js` está configurado para manejar automáticamente:
+- Base URL correcta para GitHub Pages (`/To-Do-App/`)
+- Configuración local para desarrollo (`/`)
+- Optimización de build para producción
 
 ## 🎯 Uso de la Aplicación
 
@@ -129,6 +153,14 @@ src/
 ├── App.css                 # Estilos globales
 └── main.jsx               # Punto de entrada
 ```
+
+### Archivos de Configuración
+
+- `vite.config.js` - Configuración de Vite con soporte para GitHub Pages
+- `package.json` - Dependencias y scripts del proyecto
+- `.github/workflows/deploy-react-app.yml` - Workflow de GitHub Actions para deployment
+- `index.html` - Template HTML principal
+- `eslint.config.js` - Configuración del linter
 
 ## 🚧 Próximas Características
 
