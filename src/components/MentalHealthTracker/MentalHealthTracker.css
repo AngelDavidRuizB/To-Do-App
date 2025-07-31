@@ -1,0 +1,605 @@
+.mental-health-tracker {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.health-header h1 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.add-entry-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #9b59b6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.add-entry-btn:hover {
+  background: #8e44ad;
+}
+
+.health-overview {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card.mood {
+  border-left: 4px solid #2ecc71;
+}
+
+.stat-card.stress {
+  border-left: 4px solid #e74c3c;
+}
+
+.stat-card.energy {
+  border-left: 4px solid #f39c12;
+}
+
+.stat-card.sleep {
+  border-left: 4px solid #9b59b6;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.stat-label {
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.period-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.period-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ecf0f1;
+  background: white;
+  color: #7f8c8d;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.period-btn:hover {
+  border-color: #9b59b6;
+  color: #9b59b6;
+}
+
+.period-btn.active {
+  background: #9b59b6;
+  color: white;
+  border-color: #9b59b6;
+}
+
+.recommendations {
+  margin-bottom: 2rem;
+}
+
+.recommendations h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.recommendation-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #3498db;
+}
+
+.recommendation-card.mood {
+  border-left-color: #e74c3c;
+}
+
+.recommendation-card.stress {
+  border-left-color: #e74c3c;
+}
+
+.recommendation-card.energy {
+  border-left-color: #f39c12;
+}
+
+.recommendation-card.sleep {
+  border-left-color: #9b59b6;
+}
+
+.rec-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rec-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.rec-actions {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.rec-actions li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #7f8c8d;
+}
+
+.rec-actions li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.health-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.health-form h3 {
+  margin: 0 0 2rem 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #9b59b6;
+}
+
+.mood-selector {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mood-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #ecf0f1;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.mood-btn:hover {
+  border-color: currentColor;
+  background: rgba(155, 89, 182, 0.05);
+}
+
+.mood-btn.active {
+  border-color: currentColor;
+  background: rgba(155, 89, 182, 0.1);
+}
+
+.mood-btn span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.range-input {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #ecf0f1;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9b59b6;
+  cursor: pointer;
+}
+
+.range-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9b59b6;
+  cursor: pointer;
+  border: none;
+}
+
+.range-input.stress::-webkit-slider-thumb {
+  background: #e74c3c;
+}
+
+.range-input.stress::-moz-range-thumb {
+  background: #e74c3c;
+}
+
+.range-input.energy::-webkit-slider-thumb {
+  background: #f39c12;
+}
+
+.range-input.energy::-moz-range-thumb {
+  background: #f39c12;
+}
+
+.range-input.sleep::-webkit-slider-thumb {
+  background: #9b59b6;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.activity-btn {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #ecf0f1;
+  background: white;
+  color: #7f8c8d;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.activity-btn:hover {
+  border-color: #9b59b6;
+  color: #9b59b6;
+}
+
+.activity-btn.active {
+  background: #9b59b6;
+  color: white;
+  border-color: #9b59b6;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-cancel {
+  background: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.btn-cancel:hover {
+  background: #d5dbdb;
+}
+
+.btn-save {
+  background: #9b59b6;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #8e44ad;
+}
+
+.health-history {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.health-history h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+}
+
+.empty-state svg {
+  color: #bdc3c7;
+  margin-bottom: 1rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.history-entry {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #9b59b6;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.entry-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.entry-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.metric-label {
+  font-weight: 500;
+  color: #2c3e50;
+  min-width: 60px;
+}
+
+.metric-bar {
+  flex: 1;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.metric-fill.stress {
+  background: #e74c3c;
+}
+
+.metric-fill.energy {
+  background: #f39c12;
+}
+
+.metric-fill.sleep {
+  background: #9b59b6;
+}
+
+.metric-value {
+  font-weight: 500;
+  color: #2c3e50;
+  min-width: 40px;
+  text-align: right;
+}
+
+.entry-activities {
+  margin-bottom: 1rem;
+}
+
+.activities-label {
+  font-weight: 500;
+  color: #2c3e50;
+  margin-right: 0.75rem;
+}
+
+.activity-tag {
+  display: inline-block;
+  background: #9b59b6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-notes {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #9b59b6;
+}
+
+.entry-notes p {
+  margin: 0;
+  color: #7f8c8d;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .mental-health-tracker {
+    padding: 1rem;
+  }
+  
+  .health-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .overview-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .period-selector {
+    flex-direction: column;
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mood-selector {
+    justify-content: center;
+  }
+  
+  .activities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .entry-metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .metric-bar {
+    width: 100%;
+  }
+}

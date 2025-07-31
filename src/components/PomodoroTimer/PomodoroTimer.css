@@ -1,0 +1,378 @@
+.pomodoro-timer {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.timer-header h1 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.settings-btn {
+  padding: 0.75rem;
+  background: #ecf0f1;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #7f8c8d;
+  transition: all 0.3s ease;
+}
+
+.settings-btn:hover {
+  background: #d5dbdb;
+  color: #2c3e50;
+}
+
+.timer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-card svg {
+  color: #3498db;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.mode-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mode-tab {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #ecf0f1;
+  background: white;
+  color: #7f8c8d;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.mode-tab:hover {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.mode-tab.active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.timer-container {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.timer-container.work {
+  border-top: 4px solid #e74c3c;
+}
+
+.timer-container.short-break {
+  border-top: 4px solid #27ae60;
+}
+
+.timer-container.long-break {
+  border-top: 4px solid #3498db;
+}
+
+.timer-mode-info {
+  margin-bottom: 2rem;
+}
+
+.timer-mode-info svg {
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.timer-mode-info h2 {
+  color: #2c3e50;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.timer-mode-info p {
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.timer-circle {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-background {
+  fill: none;
+  stroke: #ecf0f1;
+  stroke-width: 8;
+}
+
+.progress-ring-progress {
+  fill: none;
+  stroke: #3498db;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer-container.work .progress-ring-progress {
+  stroke: #e74c3c;
+}
+
+.timer-container.short-break .progress-ring-progress {
+  stroke: #27ae60;
+}
+
+.timer-container.long-break .progress-ring-progress {
+  stroke: #3498db;
+}
+
+.timer-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.time {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  font-family: 'Courier New', monospace;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn.reset {
+  width: 50px;
+  height: 50px;
+  background: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.control-btn.reset:hover {
+  background: #d5dbdb;
+  color: #2c3e50;
+}
+
+.control-btn.play-pause {
+  width: 80px;
+  height: 80px;
+  background: #3498db;
+  color: white;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.control-btn.play-pause:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.timer-container.work .control-btn.play-pause {
+  background: #e74c3c;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.timer-container.work .control-btn.play-pause:hover {
+  background: #c0392b;
+}
+
+.timer-container.short-break .control-btn.play-pause {
+  background: #27ae60;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.timer-container.short-break .control-btn.play-pause:hover {
+  background: #229954;
+}
+
+.sessions-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.settings-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.settings-modal h3 {
+  margin: 0 0 2rem 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.setting-group {
+  margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.setting-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.setting-input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-cancel {
+  background: #ecf0f1;
+  color: #7f8c8d;
+}
+
+.btn-cancel:hover {
+  background: #d5dbdb;
+}
+
+.btn-save {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #229954;
+}
+
+@media (max-width: 768px) {
+  .pomodoro-timer {
+    padding: 1rem;
+  }
+  
+  .timer-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mode-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timer-container {
+    padding: 2rem 1rem;
+  }
+  
+  .timer-circle svg {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .time {
+    font-size: 2.5rem;
+  }
+  
+  .timer-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
